@@ -61,36 +61,6 @@ wirklich State oder Browser-APIs braucht. Aktuell trifft das nur auf
 **Kein `tailwind.config.js` anlegen.** Tailwind v4 wird über CSS konfiguriert.
 Vorschläge aus älteren Tutorials, eine JS-Config anzulegen, sind hier falsch.
 
-## Commit & Push nach jeder Änderung
-
-**Sobald eine Änderung fertig umgesetzt und verifiziert ist, wird sie committed
-und nach `origin main` gepusht — ohne Rückfrage.** Das ist die Standarderwartung
-in diesem Repo, nicht die Ausnahme.
-
-Der Push auf `main` löst bei Vercel einen Production-Deploy aus. Jeder Commit
-geht also direkt online, ohne Review-Schritt dazwischen. Daraus folgt die
-Reihenfolge, die nicht abgekürzt wird:
-
-1. Änderung umsetzen
-2. `npm run build` — muss grün sein
-3. Ergebnis prüfen (bei sichtbaren Änderungen im Browser anschauen)
-4. `git add` der betroffenen Dateien, committen, `git push`
-
-**Ein roter Build wird nie gepusht.** Scheitert Schritt 2 oder 3, wird der
-Fehler behoben, bevor überhaupt committed wird.
-
-Weitere Regeln:
-
-- Direkt auf `main`, kein Feature-Branch. Das ist hier bewusst so.
-- Commit-Messages auf Deutsch, knapp und im Imperativ — „Standorte auf Chur und
-  Bern umstellen", nicht „updates".
-- Ein Commit pro abgeschlossener Änderung, nicht ein Sammelcommit am Ende einer
-  langen Session.
-- Nicht committen, wenn die Arbeit unfertig ist oder noch eine offene Frage an
-  den Nutzer hängt. Dann erst fragen, dann fertigstellen, dann pushen.
-- `.env`-Dateien und Secrets gehören nie in einen Commit; die `.gitignore` deckt
-  das ab und wird nicht aufgeweicht.
-
 ## Design-Sprache
 
 Swiss Typographic: warmes Papierweiss, tiefschwarze Schrift, ein einziges
@@ -119,9 +89,7 @@ Ansprache per Sie. Nüchterner Ton, konkrete Aussagen statt Superlative —
 
 ## Deployment
 
-Vercel, Framework-Preset Next.js, keine Sonderkonfiguration nötig. Remote ist
-`origin` (github.com/MaxiMilli/marketing-page), Production-Branch ist `main` —
-jeder Push dorthin deployt. Siehe „Commit & Push nach jeder Änderung".
+Vercel, Framework-Preset Next.js, keine Sonderkonfiguration nötig.
 
 Einzige Environment Variable: `NEXT_PUBLIC_SITE_URL` (siehe `.env.example`).
 Sie steuert `metadataBase`, Canonical-URLs und die Sitemap. Ohne sie fällt die
