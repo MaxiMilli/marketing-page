@@ -15,14 +15,31 @@ export const site = {
   description:
     "Code Crush ist Ihr Entwicklungspartner für Web-Plattformen, Individualsoftware und Systemintegration. Aus der Schweiz, für Schweizer Unternehmen.",
   email: "hello@codecrush.ch",
-  phone: "+41 44 000 00 00",
-  address: {
-    street: "Musterstrasse 1",
-    postalCode: "8000",
-    city: "Zürich",
-    country: "Schweiz",
-  },
+  /** Zentrale Nummer, im CTA verlinkt. Standort-Nummern siehe `locations`. */
+  phone: "+41 81 000 00 00",
+  /** Erster Eintrag ist der Hauptsitz — er landet im Impressum und im JSON-LD. */
+  locations: [
+    {
+      city: "Chur",
+      street: "Musterstrasse 1",
+      postalCode: "7000",
+      country: "Schweiz",
+      canton: "Graubünden",
+      phone: "+41 81 000 00 00",
+    },
+    {
+      city: "Bern",
+      street: "Musterweg 2",
+      postalCode: "3000",
+      country: "Schweiz",
+      canton: "Bern",
+      phone: "+41 31 000 00 00",
+    },
+  ],
 } as const;
+
+/** Hauptsitz — Kurzform für Impressum, JSON-LD und Metadaten. */
+export const headquarters = site.locations[0];
 
 export const nav = [
   { label: "Leistungen", href: "/#leistungen" },
@@ -32,7 +49,7 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  eyebrow: "Softwareentwicklung · Zürich",
+  eyebrow: "Softwareentwicklung · Chur & Bern",
   headline: ["Wir bauen", "Software, die", "hält."],
   lead: "Von der ersten Skizze bis zum Betrieb: Wir entwickeln Web-Plattformen und Individualsoftware für Unternehmen, die es ernst meinen — und bleiben danach an Bord.",
   primaryCta: { label: "Projekt besprechen", href: "/#kontakt" },

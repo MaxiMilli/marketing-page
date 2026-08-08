@@ -34,31 +34,34 @@ export function SiteFooter() {
           </div>
 
           <div className="md:col-span-4">
-            <p className="label mb-6 text-ink-soft">Kontakt</p>
-            <address className="space-y-3 not-italic">
-              <p>
-                {site.address.street}
-                <br />
-                {site.address.postalCode} {site.address.city}
-                <br />
-                {site.address.country}
-              </p>
-              <p>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="underline-offset-4 hover:text-signal-deep hover:underline"
-                >
-                  {site.email}
-                </a>
-                <br />
-                <a
-                  href={`tel:${site.phone.replace(/\s/g, "")}`}
-                  className="underline-offset-4 hover:text-signal-deep hover:underline"
-                >
-                  {site.phone}
-                </a>
-              </p>
-            </address>
+            <p className="label mb-6 text-ink-soft">Standorte</p>
+            <div className="grid gap-8 sm:grid-cols-2">
+              {site.locations.map((location) => (
+                <address key={location.city} className="not-italic">
+                  <p className="font-bold">{location.city}</p>
+                  <p className="mt-2 text-ink-soft">
+                    {location.street}
+                    <br />
+                    {location.postalCode} {location.city}
+                  </p>
+                  <a
+                    href={`tel:${location.phone.replace(/\s/g, "")}`}
+                    className="mt-2 inline-block underline-offset-4 hover:text-signal-deep hover:underline"
+                  >
+                    {location.phone}
+                  </a>
+                </address>
+              ))}
+            </div>
+
+            <p className="mt-8 border-t border-rule pt-6">
+              <a
+                href={`mailto:${site.email}`}
+                className="underline-offset-4 hover:text-signal-deep hover:underline"
+              >
+                {site.email}
+              </a>
+            </p>
           </div>
         </div>
 

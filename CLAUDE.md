@@ -100,7 +100,9 @@ Canonicals erzeugt.
 
 - Impressum und Datenschutz sind Platzhalter und brauchen echte Firmendaten
   sowie eine juristische Prüfung
-- Kontaktangaben in `lib/site.ts` (Adresse, Telefon) sind Platzhalter
+- Standorte in `lib/site.ts` (Chur als Hauptsitz, Bern als Zweitstandort) sind
+  mit Platzhalter-Adressen und -Telefonnummern hinterlegt; der erste Eintrag
+  gilt als Hauptsitz und landet in Impressum, Datenschutz und JSON-LD
 - Referenz-Zitat und Kennzahlen im Hero sind erfunden — vor Go-live durch echte
   ersetzen oder entfernen
 - Kein OG-Image hinterlegt; `app/opengraph-image.tsx` oder eine statische Datei

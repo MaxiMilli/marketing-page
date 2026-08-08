@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/ui/legal-page";
-import { site } from "@/lib/site";
+import { headquarters, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Datenschutz",
@@ -19,8 +19,8 @@ export default function DatenschutzPage() {
 
       <h2>Verantwortliche Stelle</h2>
       <p>
-        {site.legalName}, {site.address.street}, {site.address.postalCode}{" "}
-        {site.address.city}. Anfragen zum Datenschutz an{" "}
+        {site.legalName}, {headquarters.street}, {headquarters.postalCode}{" "}
+        {headquarters.city}. Anfragen zum Datenschutz an{" "}
         <a href={`mailto:${site.email}`}>{site.email}</a>.
       </p>
 

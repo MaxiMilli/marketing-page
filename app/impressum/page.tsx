@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/ui/legal-page";
-import { site } from "@/lib/site";
+import { headquarters, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Impressum",
@@ -21,12 +21,23 @@ export default function ImpressumPage() {
       <p>
         {site.legalName}
         <br />
-        {site.address.street}
+        {headquarters.street}
         <br />
-        {site.address.postalCode} {site.address.city}
+        {headquarters.postalCode} {headquarters.city}
         <br />
-        {site.address.country}
+        {headquarters.country}
       </p>
+
+      <h2>Standorte</h2>
+      <ul>
+        {site.locations.map((location, i) => (
+          <li key={location.city}>
+            <strong>{location.city}</strong>
+            {i === 0 ? " (Hauptsitz)" : ""}: {location.street},{" "}
+            {location.postalCode} {location.city}, Telefon {location.phone}
+          </li>
+        ))}
+      </ul>
 
       <h2>Kontakt</h2>
       <p>
@@ -39,7 +50,7 @@ export default function ImpressumPage() {
       <p>
         UID: CHE-000.000.000
         <br />
-        Eingetragen im Handelsregister des Kantons Zürich.
+        Eingetragen im Handelsregister des Kantons {headquarters.canton}.
       </p>
 
       <h2>Haftungsausschluss</h2>

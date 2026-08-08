@@ -17,13 +17,14 @@ function JsonLd() {
       url: site.url,
       email: site.email,
       telephone: site.phone,
-      address: {
+      address: site.locations.map((location) => ({
         "@type": "PostalAddress",
-        streetAddress: site.address.street,
-        postalCode: site.address.postalCode,
-        addressLocality: site.address.city,
+        streetAddress: location.street,
+        postalCode: location.postalCode,
+        addressLocality: location.city,
         addressCountry: "CH",
-      },
+      })),
+      areaServed: site.locations.map((location) => location.city),
     },
     {
       "@context": "https://schema.org",
