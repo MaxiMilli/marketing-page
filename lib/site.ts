@@ -51,7 +51,7 @@ export const nav = [
 export const hero = {
   eyebrow: "Softwareentwicklung · Chur & Bern",
   /** Ohne Schlusspunkt — den roten Punkt setzt die Hero-Komponente. */
-  headline: ["Wir bauen", "Software, die", "hält"],
+  headline: ["Wir machen", "Software"],
   lead: "Von der ersten Skizze bis zum Betrieb: Wir entwickeln Web-Plattformen und Individualsoftware für Unternehmen, die es ernst meinen — und bleiben danach an Bord.",
   primaryCta: { label: "Projekt besprechen", href: "/#kontakt" },
   secondaryCta: { label: "Leistungen ansehen", href: "/#leistungen" },
